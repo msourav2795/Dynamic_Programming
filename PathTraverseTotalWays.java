@@ -8,10 +8,10 @@ public class PathTraverseTotalWays {
 		for(int i=0;i<row;i++) {
 			for(int j=0;j<col;j++) {
 				if(i==0 || j==0) {
-					continue;
+					matrix[i][j]=1;
 				}
-				else {
-					matrix[i][j] = 1+ Math.max(matrix[i-1][j], matrix[i][j-1]);
+				else{
+					matrix[i][j] = matrix[i-1][j] + matrix[i][j-1];
 				}
 			}
 		}
@@ -19,7 +19,8 @@ public class PathTraverseTotalWays {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int[][] arr= new int[4][4];
+		System.out.println(pathTraverseTotalWays(arr));
 
 	}
 

@@ -22,12 +22,24 @@ public class SubsetSum {
 				}
 			}
 		}
+		String path="";
+		int row=len, col=sum;
+		if(matrix[len][sum]==true) {
+			while(col>0 && row>0) {
+				if(col-arr[row-1]>=0 && matrix[row-1][col-arr[row-1]]==true) {
+					path+=arr[row-1]+"  ";
+					col-=arr[row-1];
+				}
+				row--;
+			}
+		}
+		System.out.println(path);
 		return matrix[len][sum];
 	}
 
 	public static void main(String[] args) {
 		int arr[] = {2, 3, 7, 8};
-        System.out.print(subsetSum(arr, 14));
+        System.out.print(subsetSum(arr, 12));
 	}
 
 }
